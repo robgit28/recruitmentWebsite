@@ -1,0 +1,75 @@
+<app-header></app-header>
+<!--VACANCY LISTING-->
+<div class="overflow-hidden bg-white shadow sm:rounded-lg">
+    <div class="px-4 py-5 sm:px-6">
+      <h3 class="text-lg font-medium leading-6 text-gray-900">Vacancy Information</h3>
+      <p class="mt-1 max-w-2xl text-md text-gray-500">Posted: {{ currentDate | date:'dd-MM-yyy' }}</p>
+    </div>
+    <div class="border-t border-gray-200 px-4 py-5 sm:px-6">
+      <dl class="grid grid-cols-1 gap-x-4 gap-y-8 sm:grid-cols-2">
+        <div class="sm:col-span-1">
+          <dt class="text-lg font-medium text-gray-500">Vacancy</dt>
+          <dd class="mt-1 text-md text-gray-900">Full Stack Developer</dd>
+        </div>
+        <div class="sm:col-span-1">
+          <dt class="text-lg font-medium text-gray-500">Salary</dt>
+          <dd class="mt-1 text-md text-gray-900">£50,000</dd>
+        </div>
+        <div class="sm:col-span-1">
+          <dt class="text-lg font-medium text-gray-500">Location</dt>
+          <dd class="mt-1 text-md text-gray-900">London</dd>
+        </div>
+        <div class="sm:col-span-1">
+          <dt class="text-lg font-medium text-gray-500">Reference</dt>
+          <dd class="mt-1 text-md text-gray-900">Ref: 00234</dd>
+        </div>
+        <div class="sm:col-span-2">
+          <dt class="text-lg font-medium text-gray-500">Description</dt>
+          
+          <dd class="mt-1 mb-2 text-xlg text-gray-900">
+            The Full Stack Developer can be based anywhere within a sensible commuting 
+            distance to Brighton. Ideally, we want Full Stack Developers that are 
+            prepared to be in the office 2 - 3 days a week. The Full Stack Developer 
+            will need solid knowledge of JavaScript, HTML and CSS.
+          </dd>
+          <dd class="mt-1 mb-2 text-xlg text-gray-900">
+            This Full Stack role will suit someone who is looking for a fresh and 
+            exciting challenge and with commercial experience. Full Stack Developers 
+            with agency experience is preferred.
+          </dd>
+          <dd class="mt-1 mb-2 text-xlg text-gray-900">
+            Key skills required:
+          </dd>
+          <dd class="mt-1 mb-2 text-xlg text-gray-900">
+            HTML, JavaScript, CSS, React, Backbone or similar
+          </dd>
+          <dd class="mt-1 mb-2 text-xlg text-gray-900">
+            Desired skills:
+          </dd>
+          <dd class="mt-1 mb-2 text-xlg text-gray-900">
+            PHP, WordPress or Drupal, Agile methodologies
+          </dd>
+          <dd class="mt-1 mb-2 text-xlg text-gray-900">  
+            The ideal Full Stack Developer will have a passion for programming and be able to work individually and within a team.
+          </dd>
+          <dd class="mt-1 mb-2 text-xlg text-gray-900">
+            It is essential that all Full Stack Developers have first class communication skills - both written and verbal. Full Stack Developers will be very enthusiastic and have a desire to succeed.
+          </dd>
+        </div>
+      </dl>
+<!--APPLY HERE BUTTON-->
+      <button type="button" class="inline-flex items-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 mt-4 text-base font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+        <!-- Heroicon name: mini/envelope -->
+        <svg class="-ml-1 mr-3 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+          <path d="M3 4a2 2 0 00-2 2v1.161l8.441 4.221a1.25 1.25 0 001.118 0L19 7.162V6a2 2 0 00-2-2H3z" />
+          <path d="M19 8.839l-7.77 3.885a2.75 2.75 0 01-2.46 0L1 8.839V14a2 2 0 002 2h14a2 2 0 002-2V8.839z" />
+        </svg>
+        Apply here
+      </button>
+    </div>
+  </div>
+  
+  
+
+
+  <app-footer></app-footer>

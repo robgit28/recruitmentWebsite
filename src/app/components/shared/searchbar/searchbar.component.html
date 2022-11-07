@@ -1,6 +1,7 @@
 <div class="w-full flex flex-col sm:flex-row flex-grow shadow-md">
     <main role="main" class="w-full h-full flex-grow p-3 overflow-auto">
         <div class="flex items-center justify-center ">
+<!--SEARCH BAR -->
             <div class="flex border-2 border-gray-200 rounded">
                 <div class="form-group">
                 <input type="text" name="search" id="search" class="form-control px-4 py-2 w-80 rounded-md"
@@ -13,11 +14,17 @@
                 </button>
             </div>
         </div>
-        <ul class="list-group list-group-flush">
+
+
+
+          
+
+        <!-- <ul class="list-group list-group-flush">
             <!-- results of ngFor is passed to appFilter with argument searchText -->
-            <li class="list-group-item" *ngFor="let c of characters | search: searchText">
-                {{c}}
+            <!-- <li class="list-group-item" *ngFor="let character of characters | search: searchText">
+                {{character}}
             </li>
-        </ul>
+        </ul> --> 
+
     </main>
 </div>

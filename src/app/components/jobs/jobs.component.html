@@ -1,69 +1,334 @@
 <app-header></app-header>
-<app-searchbar></app-searchbar>
-<!--VACANCIES HEADER-->
-<div class="border-b border-gray-200 bg-white px-4 py-5 sm:px-6">
-    <div class="-ml-4 -mt-2 flex flex-wrap items-center justify-between sm:flex-nowrap">
-      <div class="ml-4 mt-2">
-        <h3 class="text-lg font-medium leading-6 text-gray-900">All live vacancies</h3>
+
+<div class="min-h-screen bg-gray-100">
+   <!--
+     When the mobile menu is open, add `overflow-hidden` to the `body` element to prevent double scrollbars
+ 
+     Open: "fixed inset-0 z-40 overflow-y-auto", Closed: ""
+   -->
+   <header class="bg-white shadow-sm lg:static lg:overflow-y-visible">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+         <div class="relative flex justify-between lg:gap-8 xl:grid xl:grid-cols-12">
+            <div class="flex md:absolute md:inset-y-0 md:left-0 lg:static xl:col-span-2">
+               <div class="flex flex-shrink-0 items-center">
+                  <a href="#">
+                     <img class="block h-8 w-auto"
+                        src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="Your Company">
+                  </a>
+               </div>
+            </div>
+            <div class="min-w-0 flex-1 md:px-8 lg:px-0 xl:col-span-6">
+               <div class="flex items-center px-6 py-4 md:mx-auto md:max-w-3xl lg:mx-0 lg:max-w-none xl:px-0">
+                  <div class="w-full">
+                     <label for="search" class="sr-only">Search</label>
+                     <div class="relative">
+                        <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+                           <!-- Heroicon name: mini/magnifying-glass -->
+                           <svg class="h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
+                              fill="currentColor" aria-hidden="true">
+                              <path fill-rule="evenodd"
+                                 d="M9 3.5a5.5 5.5 0 100 11 5.5 5.5 0 000-11zM2 9a7 7 0 1112.452 4.391l3.328 3.329a.75.75 0 11-1.06 1.06l-3.329-3.328A7 7 0 012 9z"
+                                 clip-rule="evenodd" />
+                           </svg>
+                        </div>
+                        <input id="search" name="search" [(ngModel)]="searchText" 
+                           class="block w-full rounded-md border border-gray-300 bg-white py-2 pl-10 pr-3 text-sm placeholder-gray-500 focus:border-indigo-500 focus:text-gray-900 focus:placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-indigo-500 sm:text-sm"
+                           placeholder="Search" type="search">
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="flex items-center md:absolute md:inset-y-0 md:right-0 lg:hidden">
+               <!-- Mobile menu button -->
+               <button type="button"
+                  class="-mx-2 inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
+                  aria-expanded="false">
+                  <span class="sr-only">Open menu</span>
+                  <!--
+               Icon when menu is closed.
+ 
+               Heroicon name: outline/bars-3
+ 
+               Menu open: "hidden", Menu closed: "block"
+             -->
+                  <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                     stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                     <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                  </svg>
+                  <!--
+               Icon when menu is open.
+ 
+               Heroicon name: outline/x-mark
+ 
+               Menu open: "block", Menu closed: "hidden"
+             -->
+                  <svg class="hidden h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                     stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                     <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+               </button>
+            </div>
+            <div class="hidden lg:flex lg:items-center lg:justify-end xl:col-span-4">
+               <a href="#"
+                  class="ml-5 flex-shrink-0 rounded-full bg-white p-1 text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+                  <span class="sr-only">View notifications</span>
+                  <!-- Heroicon name: outline/bell -->
+                  <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                     stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                     <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0" />
+                  </svg>
+               </a>
+
+               <!-- Profile dropdown -->
+               <div class="relative ml-5 flex-shrink-0">
+                  <div>
+                     <button type="button"
+                        class="flex rounded-full bg-white focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                        id="user-menu-button" aria-expanded="false" aria-haspopup="true">
+                        <span class="sr-only">Open user menu</span>
+                        <img class="h-8 w-8 rounded-full"
+                           src="https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                           alt="">
+                     </button>
+                  </div>
+
+                  <!--
+               Dropdown menu, show/hide based on menu state.
+ 
+               Entering: "transition ease-out duration-100"
+                 From: "transform opacity-0 scale-95"
+                 To: "transform opacity-100 scale-100"
+               Leaving: "transition ease-in duration-75"
+                 From: "transform opacity-100 scale-100"
+                 To: "transform opacity-0 scale-95"
+             -->
+                  <div
+                     class="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+                     role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
+                     <!-- Active: "bg-gray-100", Not Active: "" -->
+                     <a href="#" class="block py-2 px-4 text-sm text-gray-700" role="menuitem" tabindex="-1"
+                        id="user-menu-item-0">Your Profile</a>
+
+                     <a href="#" class="block py-2 px-4 text-sm text-gray-700" role="menuitem" tabindex="-1"
+                        id="user-menu-item-1">Settings</a>
+
+                     <a href="#" class="block py-2 px-4 text-sm text-gray-700" role="menuitem" tabindex="-1"
+                        id="user-menu-item-2">Sign out</a>
+                  </div>
+               </div>
+
+               <a href="#"
+                  class="ml-6 inline-flex items-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">New
+                  Project</a>
+            </div>
+         </div>
       </div>
-      <div class="ml-4 mt-2 flex-shrink-0">
-        <button type="button" class="relative inline-flex items-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Create new job</button>
+
+      <!-- Mobile menu, show/hide based on menu state. -->
+      <nav class="lg:hidden" aria-label="Global">
+         <div class="mx-auto max-w-3xl space-y-1 px-2 pt-2 pb-3 sm:px-4">
+            <!-- Current: "bg-gray-100 text-gray-900", Default: "hover:bg-gray-50" -->
+            <a href="#" aria-current="page"
+               class="bg-gray-100 text-gray-900 block rounded-md py-2 px-3 text-base font-medium">Dashboard</a>
+
+            <a href="#" class="hover:bg-gray-50 block rounded-md py-2 px-3 text-base font-medium">Calendar</a>
+
+            <a href="#" class="hover:bg-gray-50 block rounded-md py-2 px-3 text-base font-medium">Teams</a>
+
+            <a href="#" class="hover:bg-gray-50 block rounded-md py-2 px-3 text-base font-medium">Directory</a>
+         </div>
+         <div class="border-t border-gray-200 pt-4 pb-3">
+            <div class="mx-auto flex max-w-3xl items-center px-4 sm:px-6">
+               <div class="flex-shrink-0">
+                  <img class="h-10 w-10 rounded-full"
+                     src="https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                     alt="">
+               </div>
+               <div class="ml-3">
+                  <div class="text-base font-medium text-gray-800">Chelsea Hagon</div>
+                  <div class="text-sm font-medium text-gray-500">chelsea.hagon@example.com</div>
+               </div>
+               <button type="button"
+                  class="ml-auto flex-shrink-0 rounded-full bg-white p-1 text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+                  <span class="sr-only">View notifications</span>
+                  <!-- Heroicon name: outline/bell -->
+                  <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                     stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                     <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0" />
+                  </svg>
+               </button>
+            </div>
+            <div class="mx-auto mt-3 max-w-3xl space-y-1 px-2 sm:px-4">
+               <a href="#"
+                  class="block rounded-md py-2 px-3 text-base font-medium text-gray-500 hover:bg-gray-50 hover:text-gray-900">Your
+                  Profile</a>
+
+               <a href="#"
+                  class="block rounded-md py-2 px-3 text-base font-medium text-gray-500 hover:bg-gray-50 hover:text-gray-900">Settings</a>
+
+               <a href="#"
+                  class="block rounded-md py-2 px-3 text-base font-medium text-gray-500 hover:bg-gray-50 hover:text-gray-900">Sign
+                  out</a>
+            </div>
+         </div>
+      </nav>
+   </header>
+
+   <div class="py-6">
+      <div class="mx-auto max-w-3xl sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-12 lg:gap-8 lg:px-8">
+         <div class="hidden lg:col-span-3 lg:block xl:col-span-2">
+            <nav aria-label="Sidebar" class="sticky top-6 divide-y divide-gray-300">
+               <!-- SEARCH FILTERS -->
+               <!-- SALARY TO/FROM -->
+               <div class="mb-4">
+                  <h1 class="font-bold">Salary</h1>
+                  <label for="salaryFrom" class="block text-sm font-medium text-gray-700">From:</label>
+                  <select id="salaryFrom" name="salaryFrom" class="mt-1 block w-full rounded-md border-gray-300 py-2 pl-3 pr-10 text-base focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm">
+                    <option selected>Any</option>
+                    <option>£20,000</option>
+                    <option>£25,000</option>
+                    <option>£30,000</option>
+                    <option>£35,000</option>
+                    <option>£40,000</option>
+                  </select>
+                  <label for="salaryTo" class="block text-sm font-medium text-gray-700">To:</label>
+                  <select id="salaryTo" name="salaryTo" class="mt-1 block w-full rounded-md border-gray-300 py-2 pl-3 pr-10 text-base focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm">
+                     <option selected>Any</option>
+                     <option>£25,000</option>
+                     <option>£30,000</option>
+                     <option>£35,000</option>
+                     <option>£40,000</option>
+                     <option>£45,000</option>
+                  </select>
+                </div>
+                <!-- JOB TYPE -->
+                <h1 class="font-bold">Job Type</h1>
+                <fieldset class="space-y-2">
+                  <legend class="sr-only">Notifications</legend>
+                  <!--PERM-->
+                  <div class="relative flex items-start">
+                    <div class="flex h-5 items-center">
+                      <input id="permanent" aria-describedby="permanent" name="permanent" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500">
+                    </div>
+                    <div class="ml-3 text-sm">
+                      <label for="permanent" class="font-medium text-gray-700">Permanent</label>
+                    </div>
+                  </div>
+                  <!--TEMP-->
+                  <div class="relative flex items-start">
+                    <div class="flex h-5 items-center">
+                      <input id="temporary" aria-describedby="temporary" name="temporary" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500">
+                    </div>
+                    <div class="ml-3 text-sm">
+                      <label for="temporary" class="font-medium text-gray-700">Temporary</label>
+                    </div>
+                  </div>
+                  <!--CONTRACT-->
+                  <div class="relative flex items-start">
+                  <div class="flex h-5 items-center">
+                     <input id="contract" aria-describedby="contract" name="contract" type="checkbox"
+                        class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500">
+                  </div>
+                  <div class="ml-3 text-sm">
+                     <label for="contract" class="font-medium text-gray-700">Contract</label>
+                  </div>
+                  </div>
+                  <!--FULL TIME-->
+                  <div class="relative flex items-start">
+                     <div class="flex h-5 items-center">
+                        <input id="fullTime" aria-describedby="fullTime" name="fullTime" type="checkbox"
+                           class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500">
+                     </div>
+                     <div class="ml-3 text-sm">
+                        <label for="fullTime" class="font-medium text-gray-700">Full-Time</label>
+                     </div>
+                  </div>
+                  <!--PART TIME-->
+                  <div class="relative flex items-start">
+                     <div class="flex h-5 items-center">
+                        <input id="partTime" aria-describedby="partTime" name="partTime" type="checkbox"
+                           class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500">
+                     </div>
+                     <div class="ml-3 text-sm">
+                        <label for="partTime" class="font-medium text-gray-700">Part-Time</label>
+                     </div>
+                  </div>
+                  <!--WFH-->
+                  <div class="relative flex items-start">
+                     <div class="flex h-5 items-center">
+                        <input id="wfh" aria-describedby="wfh" name="wfh" type="checkbox"
+                           class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500">
+                     </div>
+                     <div class="ml-3 text-sm">
+                        <label for="wfh" class="font-medium text-gray-700">Work From Home</label>
+                     </div>
+                  </div>
+                </fieldset>
+
+                
+
+
+
+
+            </nav>
+         </div>
+         <main class="lg:col-span-9 xl:col-span-6">
+            <!-- VACANCY LISTING CARD -->
+         <div *ngFor="let vacancy of vacancies | search: searchText">
+
+
+            <div class="flex bg-white shadow-lg rounded-lg mx-4 md:mx-auto my-8 max-w-md md:max-w-2xl">
+               <div class="flex items-start px-4 py-6">
+                  <div class="">
+                     <div class="flex items-center justify-between">
+                        <h2 class="text-lg font-semibold text-gray-900 -mt-1">{{ vacancy.title }}</h2>
+                        <small class="text-sm text-gray-700">Posted: {{ vacancy.date }}</small>
+                     </div>
+                     <p class="text-gray-700">Salary: £{{ vacancy.salary }}</p>
+                     <p class="text-gray-700">Location: {{ vacancy.location }}</p>
+                     <p class="text-gray-700">Reference: {{ vacancy.reference }}</p>
+                     <p class="mt-3 text-gray-700 text-sm">{{ vacancy.body }}</p>
+                     <div class="mt-4 flex items-center">
+                        <div class="flex mr-2 text-gray-700 text-sm mr-3">
+                           <svg fill="none" viewBox="0 0 24 24" class="w-4 h-4 mr-1" stroke="currentColor">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                 d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                           </svg>
+                           <span>12</span>
+                        </div>
+                        <div class="flex mr-2 text-gray-700 text-sm mr-8">
+                           <svg fill="none" viewBox="0 0 24 24" class="w-4 h-4 mr-1" stroke="currentColor">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                 d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z" />
+                           </svg>
+                           <span>8</span>
+                        </div>
+                        <div class="flex mr-2 text-gray-700 text-sm mr-4">
+                           <svg fill="none" viewBox="0 0 24 24" class="w-4 h-4 mr-1" stroke="currentColor">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                 d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
+                           </svg>
+                           <span>share</span>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+
+         </div>
+
+         </main>
+         <aside class="hidden xl:col-span-4 xl:block">
+            <div class="sticky top-6 space-y-4">
+               <!-- Your content -->
+               <p>Most Searched Terms</p>
+            </div>
+         </aside>
       </div>
-    </div>
+   </div>
 </div>
-<!-- VACANCY LISTING CARD -->
-<div class="flex bg-white shadow-lg rounded-lg mx-4 md:mx-auto my-16 max-w-md md:max-w-2xl"><!--horizantil margin is just for display-->
-    <div class="flex items-start px-4 py-6">
-       <div class="">
-          <div class="flex items-center justify-between">
-             <h2 class="text-lg font-semibold text-gray-900 -mt-1">Full Stack Developer</h2>
-             <small class="text-sm text-gray-700">Posted: {{ currentDate | date:'dd-MM-yyy' }}</small>
-          </div>
-          <p class="text-gray-700">Salary: £50,000</p>
-          <p class="text-gray-700">Location: London</p>
-          <p class="text-gray-700">Reference: 00234</p>
-          <p class="mt-3 text-gray-700 text-sm">
-            Full Stack Web Developer 40k - 45k and can be Hybrid working. 
-            The Full Stack Developer can be based anywhere within a sensible commuting 
-            distance to London.
-          </p>
-          <div class="mt-4 flex items-center">
-             <div class="flex mr-2 text-gray-700 text-sm mr-3">
-                <svg fill="none" viewBox="0 0 24 24"  class="w-4 h-4 mr-1" stroke="currentColor">
-                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
-                 </svg>
-                <span>12</span>
-             </div>
-             <div class="flex mr-2 text-gray-700 text-sm mr-8">
-                <svg fill="none" viewBox="0 0 24 24" class="w-4 h-4 mr-1" stroke="currentColor">
-                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"/>
-                </svg>
-                <span>8</span>
-             </div>
-             <div class="flex mr-2 text-gray-700 text-sm mr-4">
-                <svg fill="none" viewBox="0 0 24 24" class="w-4 h-4 mr-1" stroke="currentColor">
-                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"/>
-                 </svg>
-                <span>share</span>
-             </div>
-          </div>
-       </div>
-    </div>
- </div>
-
-
-<!-- <div *ngFor="let vacancy of vacancies">
-    <p>{{ vacancy.id }}</p>
-    <p>{{ vacancy.reference }}</p>
-    <p>{{ vacancy.title }}</p>
-    <p>{{ vacancy.salary }}</p>
-    <p>{{ vacancy.date }}</p>
-    <p>{{ vacancy.location }}</p>
-    <p>{{ vacancy.type }}</p>
-    <p>{{ vacancy.body }}</p>
-</div> -->
-
 
 <app-footer></app-footer>
-
-<!-- needs pagination -->

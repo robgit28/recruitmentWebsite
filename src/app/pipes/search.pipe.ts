@@ -1,4 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
+//import { Vacancy } from './models/vacancy';
 
 @Pipe({
   name: 'search'
@@ -13,11 +14,11 @@ export class SearchPipe implements PipeTransform {
     if (!searchText) {
       return items;
     }
-    searchText = searchText.toLocaleLowerCase();
 
-    return items.filter(it => {
-      return it.toLocaleLowerCase().includes(searchText);
-    });
+    const filteredVacancies = items.filter(vacancy => {
+      return vacancy.title.toLowerCase().includes(searchText.toLowerCase());
+    }); 
+
+    return filteredVacancies; 
   }
-
 }

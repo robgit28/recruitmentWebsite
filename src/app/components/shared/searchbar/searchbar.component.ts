@@ -12,7 +12,7 @@ export class SearchbarComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  searchText: string = '';
+  
   characters = [
     'Ant-Man',
     'Aquaman',

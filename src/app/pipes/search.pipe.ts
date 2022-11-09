@@ -15,10 +15,33 @@ export class SearchPipe implements PipeTransform {
       return items;
     }
 
-    const filteredVacancies = items.filter(vacancy => {
-      return vacancy.title.toLowerCase().includes(searchText.toLowerCase());
-    }); 
+    // only searches one property 
+    // const filteredVacancies = items.filter(vacancy => {
+    //   return vacancy.title.toLowerCase().includes(searchText.toLowerCase());
+    // }); 
+    // return filteredVacancies; 
+   
+    // doesn't work 
+    // return items.filter(vacancy => {
+    //   Object.keys(vacancy).forEach(key => {
+    //     if (vacancy[key].toLowerCase().includes(searchText.toLowerCase())) {
+    //       return true;
+    //     } else {
+    //       return false;
+    //     }
+    //   })
+    // }); 
 
-    return filteredVacancies; 
+    return items.filter(vacancy =>
+      Object.keys(vacancy).some(
+        k =>
+        vacancy[k] != null &&
+        vacancy[k]
+            .toString()
+            .toLowerCase()
+            .includes(searchText.toLowerCase())
+      )
+    );
+
   }
 }

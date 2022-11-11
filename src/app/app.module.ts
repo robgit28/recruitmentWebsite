@@ -6,6 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 
 import { NgcCookieConsentModule, NgcCookieConsentConfig } from 'ngx-cookieconsent';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 import { HomeComponent } from './components/home/home.component';
 import { BlogComponent } from './components/blog/blog.component';
@@ -63,7 +64,8 @@ const cookieConfig:NgcCookieConsentConfig = {
     FormsModule, 
     HttpClientModule,
     ReactiveFormsModule,
-    NgcCookieConsentModule.forRoot(cookieConfig)
+    NgcCookieConsentModule.forRoot(cookieConfig),
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]

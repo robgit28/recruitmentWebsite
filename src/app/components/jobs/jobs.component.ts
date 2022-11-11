@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Vacancy } from '../../models/vacancy';
 
 @Component({
   selector: 'app-jobs',
@@ -10,6 +11,9 @@ export class JobsComponent implements OnInit {
 
   currentDate: Date = new Date();
   showOption: boolean = false;
+  p: number;
+  collection: Vacancy[];  
+
   constructor() { }
 
   ngOnInit(): void {
@@ -28,6 +32,10 @@ export class JobsComponent implements OnInit {
 
   public toggleOption() {
     this.showOption = this.showOption === true ? false : true;
+  }
+
+  onPageChange(page: number) {
+    this.p = page;
   }
 
 }

@@ -370,7 +370,7 @@
          <main class="lg:col-span-9 xl:col-span-6">
             <h1 class="font-bold">Vacancies</h1>
             <!-- VACANCY LISTING CARD -->
-            <div *ngFor="let vacancy of vacancies | search: searchText">
+            <div *ngFor="let vacancy of vacancies | paginate: { itemsPerPage: 4, currentPage: p } | search: searchText">
 
 
                <div class="flex bg-white shadow-lg rounded-lg mx-4 md:mx-auto my-6 max-w-md md:max-w-2xl">
@@ -410,10 +410,15 @@
                      </div>
                   </div>
                </div>
-
             </div>
 
+            <pagination-controls class="bottom-0 left-0" (pageBoundsCorrection)="onPageChange($event)" (pageChange)="onPageChange($event)"></pagination-controls>
+
+         
+
+
          </main>
+         
          <aside class="hidden xl:col-span-4 xl:block">
             <div class="sticky top-6 space-y-4">
                <!-- Your content -->

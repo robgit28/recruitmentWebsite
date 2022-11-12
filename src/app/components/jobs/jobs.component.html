@@ -32,7 +32,7 @@
                            </svg>
                         </div>
                         <!-- SEARCH BOX -->
-                        <input id="search" name="search" [(ngModel)]="searchText"
+                        <input id="search" name="search" [(ngModel)]="searchText" 
                            class="block w-full rounded-md border border-gray-300 bg-white py-2 pl-10 pr-3 text-sm placeholder-gray-500 focus:border-indigo-500 focus:text-gray-900 focus:placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-indigo-500 sm:text-sm"
                            placeholder="Search" type="search">
                      </div>
@@ -91,7 +91,7 @@
                         <span class="sr-only">Open user menu</span>
                         <img class="h-8 w-8 rounded-full"
                            src="https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                           alt="">
+                           alt="Portrait of logged in user">
                            <!-- <i #loginpopup></i> -->
                      </button>
                   </div>
@@ -147,7 +147,7 @@
                <div class="flex-shrink-0">
                   <img class="h-10 w-10 rounded-full"
                      src="https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                     alt="">
+                     alt="Portrait of logged in user">
                </div>
                <div class="ml-3">
                   <div class="text-base font-medium text-gray-800">Chelsea Hagon</div>
@@ -359,21 +359,13 @@
                      </div>
                   </fieldset>
                </div>
-
-
-
-
-
-
             </nav>
          </div>
          <main class="lg:col-span-9 xl:col-span-6">
             <h1 class="font-bold">Vacancies</h1>
             <!-- VACANCY LISTING CARD -->
-            <div *ngFor="let vacancy of vacancies | paginate: { itemsPerPage: 4, currentPage: p } | search: searchText">
-
-
-               <div class="flex bg-white shadow-lg rounded-lg mx-4 md:mx-auto my-6 max-w-md md:max-w-2xl">
+            <div *ngFor="let vacancy of vacancies | paginate: { itemsPerPage: 5, currentPage: p } | search: searchText">
+               <div [routerLink]="['/job', vacancy.id ]" class="hover:shadow-xl hover:scale-105 durhoveration-500 transform transition cursor-pointer flex bg-white shadow-lg rounded-lg mx-4 md:mx-auto my-6 max-w-md md:max-w-2xl">
                   <div class="flex items-start px-4 py-6">
                      <div class="">
                         <div class="flex items-center justify-between">

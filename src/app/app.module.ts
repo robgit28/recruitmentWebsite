@@ -6,10 +6,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 
 import { NgcCookieConsentModule, NgcCookieConsentConfig } from 'ngx-cookieconsent';
-import {NgxPaginationModule} from 'ngx-pagination';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 import { HomeComponent } from './components/home/home.component';
+import { AboutUsComponent } from './components/about-us/about-us.component';
 import { BlogComponent } from './components/blog/blog.component';
+import { BlogsComponent } from './components/blogs/blogs.component';
 import { CandidateComponent } from './components/candidate/candidate.component';
 import { ClientComponent } from './components/client/client.component';
 import { ContactUsComponent } from './components/contact-us/contact-us.component';
@@ -43,8 +45,10 @@ const cookieConfig:NgcCookieConsentConfig = {
 @NgModule({
   declarations: [
     AppComponent,
+    AboutUsComponent, 
     AppNotFoundComponent,
-    BlogComponent,
+    BlogComponent, 
+    BlogsComponent,
     CandidateComponent,
     ClientComponent,
     ContactUsComponent,

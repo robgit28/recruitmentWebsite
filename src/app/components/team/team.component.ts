@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from 'src/app/services/data.service';
 
 @Component({
   selector: 'app-team',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TeamComponent implements OnInit {
 
-  constructor() { }
+  employees: any[]; 
+
+  constructor(private dataService: DataService) { }
 
   ngOnInit(): void {
+    this.employees = this.dataService.employees;
   }
 
 }

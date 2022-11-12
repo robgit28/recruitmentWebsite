@@ -15,23 +15,6 @@ export class SearchPipe implements PipeTransform {
       return items;
     }
 
-    // only searches one property 
-    // const filteredVacancies = items.filter(vacancy => {
-    //   return vacancy.title.toLowerCase().includes(searchText.toLowerCase());
-    // }); 
-    // return filteredVacancies; 
-   
-    // doesn't work 
-    // return items.filter(vacancy => {
-    //   Object.keys(vacancy).forEach(key => {
-    //     if (vacancy[key].toLowerCase().includes(searchText.toLowerCase())) {
-    //       return true;
-    //     } else {
-    //       return false;
-    //     }
-    //   })
-    // }); 
-
     return items.filter(vacancy =>
       Object.keys(vacancy).some(
         k =>

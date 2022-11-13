@@ -10,7 +10,7 @@ import { ClientComponent } from './components/client/client.component';
 import { ContactUsComponent } from './components/contact-us/contact-us.component';
 import { HomeComponent } from './components/home/home.component';
 import { JobComponent } from './components/job/job.component';
-import { JobsComponent } from './components/jobs/jobs.component';
+import { JobsSearchComponent } from './components/jobs-search/jobs-search.component';
 
 import { TeamComponent } from './components/team/team.component';
 import { TestimonialsComponent } from './components/testimonials/testimonials.component';
@@ -49,8 +49,8 @@ const routes: Routes = [
     component: JobComponent
   },
   {
-    path: "jobs",
-    component: JobsComponent
+    path: "jobs-search",
+    component: JobsSearchComponent
   },
   {
     path: "team",

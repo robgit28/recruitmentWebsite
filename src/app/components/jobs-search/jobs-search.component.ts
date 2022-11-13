@@ -3,12 +3,11 @@ import { DataService } from 'src/app/services/data.service';
 import { Vacancy } from '../../models/vacancy';
 
 @Component({
-  selector: 'app-jobs',
-  templateUrl: './jobs.component.html',
-  styleUrls: ['./jobs.component.scss'],
-  host: { '(document:click)': 'handleClick($event)' }
+  selector: 'app-jobs-search',
+  templateUrl: './jobs-search.component.html',
+  styleUrls: ['./jobs-search.component.scss']
 })
-export class JobsComponent implements OnInit {
+export class JobsSearchComponent implements OnInit {
 
   currentDate: Date = new Date();
   showOption: boolean = false;
@@ -30,5 +29,13 @@ export class JobsComponent implements OnInit {
   onPageChange(page: number) {
     this.p = page;
   }
-
 }
+
+
+
+  
+
+  
+
+
+

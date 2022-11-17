@@ -10,7 +10,9 @@ import { Vacancy } from '../../models/vacancy';
 export class JobsSearchComponent implements OnInit {
 
   currentDate: Date = new Date();
-  showOption: boolean = false;
+
+  showProfileMenu: boolean = false;
+  showMobileSearchFilter: boolean = false;
   p: number;
   collection: Vacancy[];  
   searchText: string = '';
@@ -22,8 +24,13 @@ export class JobsSearchComponent implements OnInit {
     this.vacancies = this.dataService.vacancies;
   }
 
-  public toggleOption() {
-    this.showOption = this.showOption === true ? false : true;
+
+  public toggleProfileMenu() {
+    this.showProfileMenu = this.showProfileMenu === true ? false : true;
+  }
+
+  public toggleMobileSearchFilter() {
+    this.showMobileSearchFilter = this.showMobileSearchFilter === true ? false : true;
   }
 
   onPageChange(page: number) {

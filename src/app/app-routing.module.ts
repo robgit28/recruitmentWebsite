@@ -10,10 +10,11 @@ import { ClientComponent } from './components/client/client.component';
 import { ContactUsComponent } from './components/contact-us/contact-us.component';
 import { HomeComponent } from './components/home/home.component';
 import { JobComponent } from './components/job/job.component';
-import { JobsSearchComponent } from './components/jobs-search/jobs-search.component';
-
+//import { JobsComponent } from './components/jobs/jobs.component';
 import { TeamComponent } from './components/team/team.component';
 import { TestimonialsComponent } from './components/testimonials/testimonials.component';
+//import { SearchComponent } from './components/search/search.component';
+//import { VacancyListComponent } from './components/vacancy-list/vacancy-list.component';
 
 const routes: Routes = [
   {
@@ -48,9 +49,14 @@ const routes: Routes = [
     path: "job/:id",
     component: JobComponent
   },
-  {
-    path: "jobs-search",
-    component: JobsSearchComponent
+  // {
+  //   path: "jobs",
+  //   component: JobsComponent
+  // },
+  { 
+    path: "jobs", 
+    loadChildren: () => import('./components/jobs/jobs.module').then(x => x.JobsModule)
+    //loadChildren: './components/jobs/jobs.module#JobsModule' 
   },
   {
     path: "team",
@@ -61,9 +67,13 @@ const routes: Routes = [
     component: TestimonialsComponent
   },
   {
-    path: "**",
-    component: AppNotFoundComponent
+    path: "",
+    component: HomeComponent
   },
+  // {
+  //   path: "**",
+  //   component: AppNotFoundComponent
+  // },
 
 ];
 
@@ -72,3 +82,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
+

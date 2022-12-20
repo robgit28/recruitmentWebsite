@@ -5,26 +5,17 @@ import { Pipe, PipeTransform } from '@angular/core';
   name: 'search'
 })
 export class SearchPipe implements PipeTransform {
-
-  // change any[] to job model []
-  transform(items: any[], searchText: string): any[] {
-    if (!items) {
+// multi filter seaqrch pipe 
+  transform(items: any[], value: string, prop: string): any[] {
+    if (!items)
       return [];
-    }
-    if (!searchText) {
+    if (!value)
       return items;
-    }
-
-    return items.filter(vacancy =>
-      Object.keys(vacancy).some(
-        k =>
-        vacancy[k] != null &&
-        vacancy[k]
-            .toString()
-            .toLowerCase()
-            .includes(searchText.toLowerCase())
-      )
+    return items.filter(singleItem =>
+      // this currently works 
+      singleItem[prop].toLowerCase().startsWith(value.toLowerCase())
+      //Object.keys(singleItem).some(k => singleItem[k].includes(value.toLowerCase()))
+      //singleItem[prop].toLowerCase().some(prop => singleItem[prop].includes(value.toLowerCase())
     );
-
   }
 }

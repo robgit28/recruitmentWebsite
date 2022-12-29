@@ -6,8 +6,8 @@ import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
-     FooterComponent,
-     HeaderComponent
+    //  FooterComponent,
+    //  HeaderComponent
   ],
   imports: [
     BrowserModule,
@@ -15,8 +15,8 @@ import { FooterComponent } from './footer/footer.component';
   ],
   exports: [
     //SharedModule
-    FooterComponent,
-    HeaderComponent
+    //FooterComponent,
+    //HeaderComponent
   ], 
   providers: [],
 

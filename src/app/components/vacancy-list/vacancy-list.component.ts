@@ -41,7 +41,6 @@ export class VacancyListComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges(): void {
-    console.log("this.searchcriteria", this.searchcriteria); 
     if (this.groupFilters) this.filterVacancyList(this.groupFilters, this.vacancies);
     if (this.searchcriteria) this.searchBarSearch(this.searchcriteria, this.vacancies);
   }

@@ -14,6 +14,7 @@ export class JobComponent implements OnInit {
   //vacancy: Vacancy;
   vacancy: any; 
   id: string | null; 
+  
   constructor(private route: ActivatedRoute, private dataService: DataService) { }
   
 

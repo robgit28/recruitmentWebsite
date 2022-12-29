@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, Meta } from '@angular/platform-browser';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
@@ -18,8 +18,8 @@ import { CandidateComponent } from './components/candidate/candidate.component';
 import { ClientComponent } from './components/client/client.component';
 import { ContactUsComponent } from './components/contact-us/contact-us.component';
 import { JobComponent } from './components/job/job.component';
-// import { FooterComponent } from './components/shared/footer/footer.component';
-// import { HeaderComponent } from './components/shared/header/header.component';
+import { FooterComponent } from './components/shared/footer/footer.component';
+import { HeaderComponent } from './components/shared/header/header.component';
 //import { JobsComponent } from './components/jobs/jobs.component';
 import { TeamComponent } from './components/team/team.component';
 import { TestimonialsComponent } from './components/testimonials/testimonials.component';
@@ -56,8 +56,8 @@ const cookieConfig:NgcCookieConsentConfig = {
     CandidateComponent,
     ClientComponent,
     ContactUsComponent,
-    // FooterComponent,
-    // HeaderComponent,
+    FooterComponent,
+    HeaderComponent,
     HomeComponent,
     JobComponent,
     //JobsComponent,
@@ -73,7 +73,7 @@ const cookieConfig:NgcCookieConsentConfig = {
     AppRoutingModule,
     FormsModule, 
     JobsModule, 
-    SharedModule,
+    //SharedModule,
     HttpClientModule,
     ReactiveFormsModule,
     NgcCookieConsentModule.forRoot(cookieConfig),
@@ -83,7 +83,9 @@ const cookieConfig:NgcCookieConsentConfig = {
     
     //HeaderComponent
   ], 
-  providers: [],
+  providers: [
+    Meta
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -2,6 +2,7 @@
 <!-- ABOUT US BODY -->
 <div class="overflow-hidden bg-gray-50 py-16">
     <div class="mx-auto max-w-7xl space-y-8 px-4 sm:px-6 lg:px-8">
+
       <div class="mx-auto max-w-prose text-base lg:max-w-none">
         <h2 class="text-lg font-semibold text-indigo-600">About Us</h2>
         <p class="mt-2 text-3xl font-bold leading-8 tracking-tight text-gray-900 sm:text-4xl">What makes us different</p>
@@ -11,7 +12,7 @@
       </div>
       <div class="lg:grid lg:grid-cols-2 lg:items-start lg:gap-8">
         <div class="relative z-10">
-          <div class="prose prose-indigo mx-auto text-gray-500 lg:max-w-none">
+          <article class="prose prose-indigo mx-auto text-gray-500 lg:max-w-none">
             <p>Our senior management team and extensive database of IT professionals provide us with the resources to consistently deliver a first class service to our clients. We are confident we can deliver talent who will make a real impact in your business.</p>
             <ul role="list">
               <li>Specific Industry Knowledge.</li>
@@ -22,7 +23,7 @@
             <p>We strive to create a nurturing environment that facilitates the growth of our employees, professionally and personally. We put effort, determination and ambition into creating a second home for our employees, where everyone is encouraged to be their most authentic self.</p>
             <h3>We're here to help</h3>
             <p>We are committed to producing successful outcomes for everyone involved. Not just clients, not just candidates, and most importantly, never just ourselves. With this in mind, we adopt a consultative recruitment approach with the objective of providing quality, consistency and personality.</p>
-          </div>
+          </article>
           <div class="mx-auto mt-10 flex max-w-prose text-base lg:max-w-none">
             <div class="rounded-md shadow">
               <a routerLink="/contact-us" class="flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-5 py-3 text-base font-medium text-white hover:bg-indigo-700">Contact Us</a>
@@ -40,12 +41,18 @@
           </svg>
           <blockquote class="relative rounded-lg bg-white shadow-lg">
             <div class="rounded-t-lg px-6 py-8 sm:px-10 sm:pt-10 sm:pb-8">
-              <img src="https://tailwindui.com/img/logos/workcation-logo-indigo-600-mark-gray-800-and-indigo-600-text.svg" alt="Workcation" class="h-8">
+              <svg width="32" height="36" viewBox="0 0 32 36" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M15.922 35.798c-.946 0-1.852-.228-2.549-.638l-10.825-6.379c-1.428-.843-2.549-2.82-2.549-4.501v-12.762c0-1.681 1.12-3.663 2.549-4.501l10.825-6.379c.696-.41 1.602-.638 2.549-.638.946 0 1.852.228 2.549.638l10.825 6.379c1.428.843 2.549 2.82 2.549 4.501v12.762c0 1.681-1.12 3.663-2.549 4.501l-10.825 6.379c-.696.41-1.602.638-2.549.638zm0-33.474c-.545 0-1.058.118-1.406.323l-10.825 6.383c-.737.433-1.406 1.617-1.406 2.488v12.762c0 .866.67 2.05 1.406 2.488l10.825 6.379c.348.205.862.323 1.406.323.545 0 1.058-.118 1.406-.323l10.825-6.383c.737-.433 1.406-1.617 1.406-2.488v-12.757c0-.866-.67-2.05-1.406-2.488l-10.825-6.379c-.348-.21-.862-.328-1.406-.328zM26.024 13.104l-7.205 13.258-3.053-5.777-3.071 5.777-7.187-13.258h4.343l2.803 5.189 3.107-5.832 3.089 5.832 2.821-5.189h4.352z">
+                </path>
+              </svg>
               <div class="relative mt-8 text-lg font-medium text-gray-700">
                 <svg class="absolute top-0 left-0 h-8 w-8 -translate-x-3 -translate-y-2 transform text-gray-200" fill="currentColor" viewBox="0 0 32 32" aria-hidden="true">
                   <path d="M9.352 4C4.456 7.456 1 13.12 1 19.36c0 5.088 3.072 8.064 6.624 8.064 3.36 0 5.856-2.688 5.856-5.856 0-3.168-2.208-5.472-5.088-5.472-.576 0-1.344.096-1.536.192.48-3.264 3.552-7.104 6.624-9.024L9.352 4zm16.512 0c-4.8 3.456-8.256 9.12-8.256 15.36 0 5.088 3.072 8.064 6.624 8.064 3.264 0 5.856-2.688 5.856-5.856 0-3.168-2.304-5.472-5.184-5.472-.576 0-1.248.096-1.44.192.48-3.264 3.456-7.104 6.528-9.024L25.864 4z" />
                 </svg>
-                <p class="relative">Metro Recruitment consistently delivers great results for us. Their friendly and professional attitude makes them a pleasure to deal with!</p>
+                <aside class="relative">
+                  Metro Recruitment consistently delivers great results for us. Their friendly and professional attitude makes them a pleasure to deal with!
+                </aside>
               </div>
             </div>
             <cite class="relative flex items-center rounded-b-lg bg-indigo-600 py-5 px-6 not-italic sm:mt-10 sm:items-start sm:py-5 sm:pl-12 sm:pr-10">
@@ -69,22 +76,22 @@
         <div class="mt-8 flow-root lg:mt-10">
             <div class="-mt-4 -ml-8 flex flex-wrap justify-between lg:-ml-4">
                 <div class="mt-4 ml-8 flex flex-shrink-0 flex-grow lg:ml-4 lg:flex-grow-0">
-                    <img class="h-12" src="https://tailwindui.com/img/logos/tuple-logo-indigo-300.svg" alt="Tuple">
+                    <img class="h-12" src="https://tailwindui.com/img/logos/tuple-logo-indigo-300.svg" alt="Tuple Company Logo">
                 </div>
                 <div class="mt-4 ml-8 flex flex-shrink-0 flex-grow lg:ml-4 lg:flex-grow-0">
-                    <img class="h-12" src="https://tailwindui.com/img/logos/mirage-logo-indigo-300.svg" alt="Mirage">
+                    <img class="h-12" src="https://tailwindui.com/img/logos/mirage-logo-indigo-300.svg" alt="Mirage Company Logo">
                 </div>
                 <div class="mt-4 ml-8 flex flex-shrink-0 flex-grow lg:ml-4 lg:flex-grow-0">
                     <img class="h-12" src="https://tailwindui.com/img/logos/statickit-logo-indigo-300.svg"
-                        alt="StaticKit">
+                        alt="StaticKit Company Logo">
                 </div>
                 <div class="mt-4 ml-8 flex flex-shrink-0 flex-grow lg:ml-4 lg:flex-grow-0">
                     <img class="h-12" src="https://tailwindui.com/img/logos/transistor-logo-indigo-300.svg"
-                        alt="Transistor">
+                        alt="Transistor Company Logo">
                 </div>
                 <div class="mt-4 ml-8 flex flex-shrink-0 flex-grow lg:ml-4 lg:flex-grow-0">
                     <img class="h-12" src="https://tailwindui.com/img/logos/workcation-logo-indigo-300.svg"
-                        alt="Workcation">
+                        alt="Workcation Company Logo">
                 </div>
             </div>
         </div>

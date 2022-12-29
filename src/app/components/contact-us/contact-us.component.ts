@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
+import { Meta } from '@angular/platform-browser';
 
 
 @Component({
@@ -12,11 +13,19 @@ export class ContactUsComponent implements OnInit {
   public contactForm: any;
 
   constructor(
+    private meta: Meta, 
     private formBuilder: FormBuilder
   ) 
     { }
 
   ngOnInit() { 
+    this.meta.addTags([
+      { name: 'charset', content: 'UTF-8' }, 
+      { name: 'description', content: 'Please reach out to us if you would like to speak to any of the team.' }, 
+      { name: 'keywords', content: 'contact, us, email, telephone, address, recruitment' }, 
+      { name: 'author', content: 'Metro Recruitment' }
+    ]);
+
     this.contactForm = this.formBuilder.group({
       firstName: ['', { validators: [Validators.required, Validators.minLength(2), Validators.maxLength(30)], updateOn: 'blur' }],
       lastName: ['', { validators: [Validators.required, Validators.minLength(2), Validators.maxLength(30)], updateOn: 'blur' }],
@@ -25,7 +34,6 @@ export class ContactUsComponent implements OnInit {
       subject: ['', { validators: [Validators.required, Validators.minLength(2)], updateOn: 'blur' }],
       message: ['', { validators: [Validators.required, Validators.minLength(2), Validators.maxLength(500)], updateOn: 'blur' }],
     });
-    console.log(this.firstName.value); 
   }
 
   get firstName() {
@@ -54,7 +62,6 @@ export class ContactUsComponent implements OnInit {
 
   onSubmit() {
     this.contactForm.markAllAsTouched(true);
-    console.log(this.contactForm.value);
   }
 
 }
